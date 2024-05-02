@@ -1,0 +1,6 @@
+@TP_Veterinaria_HostAddress = http://localhost:5196
+
+GET {{TP_Veterinaria_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
