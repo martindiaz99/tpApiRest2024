@@ -14,5 +14,12 @@ namespace TP_Veterinaria.Controllers
         {
             return 2;
         }
+
+        //Get
+        [HttpGet]
+        public int ConsultarAnimalesDueño(int idDueño)
+        {
+            return 2;
+        }
     }
 }
