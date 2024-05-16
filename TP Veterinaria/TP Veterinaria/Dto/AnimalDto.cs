@@ -1,8 +1,7 @@
-﻿namespace TP_Veterinaria.Models
+﻿namespace TP_Veterinaria.Dto
 {
-    public class Animal
+    public class AnimalDto
     {
-        public int Id { get; set; }
         public string Nombre { get; set; }
         public string Raza { get; set; }
         public DateTime FechaNacimiento { get; set; }

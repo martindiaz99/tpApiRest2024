@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TP_Veterinaria.Data;
+using TP_Veterinaria.Dto;
+using TP_Veterinaria.Models;
 
 namespace TP_Veterinaria.Controllers
 {
@@ -7,18 +10,35 @@ namespace TP_Veterinaria.Controllers
     [ApiController]
     public class AnimalControlador : ControllerBase
     {
+        private readonly ApplicationDbContext _context;
+        public AnimalControlador(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         //Get
         [HttpGet]
-        public int ContultarAnimal()
+        public Animal ContultarAnimal(int id)
         {
-            return 2;
+            return _context.Animal.Find(id);
         }
 
         //Post
         [HttpPost]
-        public int CrearAnimal()
+        public async Task<int> CrearAnimalAsync(AnimalDto animalDto)
         {
-            return 2;
+            //Pasar los datos del DTO a la clase de Modelo
+            Animal animal = new Animal();
+            animal.Nombre = animalDto.Nombre;
+            animal.FechaNacimiento = animalDto.FechaNacimiento;
+            animal.Raza = animalDto.Raza;
+            animal.Dueño = animalDto.Dueño;
+            animal.Sexo = animalDto.Sexo;
+
+            //Guardar en la base
+            _context.Add(animal);
+            await _context.SaveChangesAsync();
+            return animal.Id;
         }
 
         //Put
