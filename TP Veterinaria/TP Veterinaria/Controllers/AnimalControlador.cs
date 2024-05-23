@@ -17,10 +17,21 @@ namespace TP_Veterinaria.Controllers
         }
 
         //Get
-        [HttpGet]
-        public Animal ContultarAnimal(int id)
+        [HttpGet("idAnimal")]
+        public Animal ConsultarAnimal(int idAnimal)
         {
-            return _context.Animal.Find(id);
+            return _context.Animal.Find(idAnimal);
+        }
+
+        //Get
+        [HttpGet("idDueno")]
+        public List<Animal> ConsultarAnimalPorDueño(int idDueno)
+        {
+            List<Animal> ListaAnimales = new List<Animal>();
+            
+            ListaAnimales = _context.Animal.Where(x => x.Dueño == idDueno).ToList();
+
+            return ListaAnimales;
         }
 
         //Post
@@ -43,10 +54,22 @@ namespace TP_Veterinaria.Controllers
 
         //Put
         [HttpPut("id")]
-        public ActionResult ActualizarAnimal(int id)
+        public async Task<ActionResult> ActualizarAnimal(AnimalDto animalDto, int idAnimal)
         {
-            if (true)
+            if (ConsultarAnimal(idAnimal) != null)
             {
+                //Pasar los datos del DTO a la clase de Modelo
+                Animal animal = new Animal();
+                animal.Id = idAnimal;
+                animal.Nombre = animalDto.Nombre;
+                animal.FechaNacimiento = animalDto.FechaNacimiento;
+                animal.Raza = animalDto.Raza;
+                animal.Dueño = animalDto.Dueño;
+                animal.Sexo = animalDto.Sexo;
+
+                _context.Update(animal);
+                await _context.SaveChangesAsync();
+
                 return Ok();
             }
             else
@@ -57,9 +80,21 @@ namespace TP_Veterinaria.Controllers
 
         //Delete
         [HttpDelete("id")]
-        public int EliminarAnimal()
+        public async Task<ActionResult> EliminarAnimal(int idAnimal)
         {
-            return 2;
+            Animal animalEliminar = ConsultarAnimal(idAnimal);
+
+            if (animalEliminar != null)
+            {
+                _context.Remove(animalEliminar);
+                await _context.SaveChangesAsync();
+
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
         }
     }
 }

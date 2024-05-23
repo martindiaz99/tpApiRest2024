@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TP_Veterinaria.Data;
+using TP_Veterinaria.Models;
 
 namespace TP_Veterinaria.Controllers
 {
@@ -7,10 +9,16 @@ namespace TP_Veterinaria.Controllers
     [ApiController]
     public class MedicamentoControlador : ControllerBase
     {
-        [HttpGet]
-        public int ConsultarMedicamento()
+        private readonly ApplicationDbContext _context;
+        public MedicamentoControlador(ApplicationDbContext context)
         {
-            return 2;
+            _context = context;
+        }
+
+        [HttpGet("idMedicamento")]
+        public Medicamento ConsultarMedicamento(int idMedicamento)
+        {
+            return _context.Medicamento.Find(idMedicamento);
         }
     }
 }

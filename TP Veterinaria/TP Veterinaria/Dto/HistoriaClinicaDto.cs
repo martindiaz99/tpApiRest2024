@@ -1,8 +1,7 @@
-﻿namespace TP_Veterinaria.Models
+﻿namespace TP_Veterinaria.Dto
 {
-    public class HistoriaClinica
+    public class HistoriaClinicaDto
     {
-        public int Id { get; set; }
         public int IdAnimal { get; set; }
         public List<int> IdAtenciones { get; set; }
     }

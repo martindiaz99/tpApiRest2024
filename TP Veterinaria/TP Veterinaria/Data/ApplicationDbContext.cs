@@ -11,5 +11,9 @@ namespace TP_Veterinaria.Data
 
         }
         public DbSet<Animal> Animal { get; set; } = default!;
+        public DbSet<Dueño> Dueño { get; set; } = default!;
+        public DbSet<HistoriaClinica> HistoriaClinica { get; set; } = default!;
+        public DbSet<Medicamento> Medicamento { get; set; } = default!;
+        public DbSet<Atencion> Atencion { get; set; } = default!;
     }
 }
