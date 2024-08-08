@@ -67,11 +67,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Dueños\crearDueño.html" />
+    <Content Include="Dueños\eliminarDueño.html" />
+    <Content Include="Dueños\modificarDueño.html" />
     <Content Include="estilos.css" />
     <Content Include="Landing.html" />
-    <Content Include="mainAnimales.html" />
-    <Content Include="mainDueños.html" />
-    <Content Include="mainHistoriasClinicas.html" />
+    <Content Include="Animales\mainAnimales.html" />
+    <Content Include="Dueños\mainDueños.html" />
+    <Content Include="HistoriasClinicas\mainHistoriasClinicas.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
