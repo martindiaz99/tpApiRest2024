@@ -71,6 +71,10 @@
     <Content Include="Dueños\eliminarDueño.html" />
     <Content Include="Dueños\modificarDueño.html" />
     <Content Include="estilos.css" />
+    <Content Include="HistoriasClinicas\detalleHistoriaClinica.html" />
+    <Content Include="HistoriasClinicas\editarHistoriaClinica.html" />
+    <Content Include="HistoriasClinicas\eliminarHistoriaClinica.html" />
+    <Content Include="HistoriasClinicas\registrarHistoriaClinica.html" />
     <Content Include="Landing.html" />
     <Content Include="Animales\mainAnimales.html" />
     <Content Include="Dueños\mainDueños.html" />
