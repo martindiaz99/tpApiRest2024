@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Detalle Animales</title>
+    <link rel="stylesheet" href="../../css/default.css">
+    <link rel="stylesheet" href="../../css/subpages.css">
+    <style>
+        .info {
+            display: flex;
+            max-width: 70%;
+            margin-bottom: 8px;
+        }
+
+        label {
+            font-size: 1rem;
+            font-weight: bold;
+            flex: 1;
+        }
+
+        .info span {
+            flex: 1;
+        }
+
+        .actions {
+            margin-top: 1.75rem;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title underlined-title">Detalle Animal</h1>
+    <form action="#">
+        <div class="info">
+            <label for="nombre">Nombre</label>
+            <span id="nombre">null</span>
+        </div>
+        <div class="info">
+            <label for="raza">Raza</label>
+            <span id="raza">null</span>
+        </div>
+        <div class="info">
+            <label for="nacimiento">Fecha de Nacimiento</label>
+            <span id="nacimiento">null</span>
+        </div>
+        <div class="info">
+            <label for="sexo">Sexo</label>
+            <span id="sexo">null</span>
+        </div>
+        <div class="info">
+            <label for="dueño">Dueño</label>
+            <span id="dueño">null</span>
+        </div>
+        <div class="actions">
+            <input type="button" value="Editar" class="link" onclick="alert('Función aun no implementada.')">
+            <span>|</span>
+            <a href="mainAnimales.html" class="link">Volver al listado</a>
+        </div>
+    </form>
+</body>
+</html>

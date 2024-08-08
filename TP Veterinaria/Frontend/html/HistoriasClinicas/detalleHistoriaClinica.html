@@ -3,24 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <title>Historias Clinicas - Detalle</title>
+    <link rel="stylesheet" href="../../css/default.css">
+    <link rel="stylesheet" href="../../css/subpages.css">
     <style>
-        :root {
-            font-size: 16px;
-            font-family: 'Arial';
-            color: #1f2225;
-        }
-
-        body {
-            padding: 1rem;
-            max-width: 700px;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            border-bottom: 1px solid #cacaca;
-            padding-bottom: 1rem;
-        }
-
         .info {
             display: flex;
             max-width: 70%;
@@ -40,21 +25,11 @@
         .actions {
             margin-top: 1.75rem;
         }
-
-        input[type="button"], a {
-            font-size: 1rem;
-            text-decoration: underline;
-            background-color: transparent;
-            color: #0070f3;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-        }
     </style>
 </head>
 
 <body>
-    <h1>Detalle Historia Clínica</h1>
+    <h1 class="title underlined-title">Detalle Historia Clínica</h1>
     <form action="#">
         <div class="info">
             <label for="idAnimal">Animal</label>
@@ -65,9 +40,9 @@
             <span id="idAnimal">null</span>
         </div>
         <div class="actions">
-            <input type="button" value="Editar" onclick="alert('Función aun no implementada.')">
+            <input type="button" value="Editar" class="link" onclick="alert('Función aun no implementada.')">
             <span>|</span>
-            <a href="mainHistoriasClinicas.html">Volver al listado</a>
+            <a href="mainHistoriasClinicas.html" class="link">Volver al listado</a>
         </div>
     </form>
 </body>

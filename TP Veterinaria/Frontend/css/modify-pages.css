@@ -1,0 +1,9 @@
+label {
+    display: block;
+    font-size: 1rem;
+}
+
+.blue-btn {
+    display: block;
+    margin-block: 1.5rem;
+}

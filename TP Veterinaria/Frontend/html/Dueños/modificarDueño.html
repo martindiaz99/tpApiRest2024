@@ -3,10 +3,12 @@
     <head>
         <meta charset="utf-8" />
         <title>Modificar Dueño</title>
-        <link rel="stylesheet" href="../estilos.css">
+        <link rel="stylesheet" href="../../css/default.css">
+        <link rel="stylesheet" href="../../css/subpages.css">
+        <link rel="stylesheet" href="../../css/modify-pages.css">
     </head>
     <body>
-        <h1>Modificar dueño</h1>
+        <h1 class="title underlined-title">Modificar dueño</h1>
 
         <form id="formModificarDueño">
             <label for="name">Nombre:</label>
@@ -15,10 +17,9 @@
             <label for="dni">Dni:</label>
             <input type="text" id="dni" name="dni" value="42000000" required><br>
 
-            <button type="submit">Guardar</button>
+            <button type="submit" class="blue-btn">Guardar</button>
         </form>
 
-        <br>
-        <button onclick="history.back()" class="button">Volver</button>
+        <button onclick="history.back()" class="link">Volver</button>
     </body>
 </html>
