@@ -67,6 +67,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Animales\crearAnimal.html" />
+    <Content Include="Animales\detalleAnimal.html" />
+    <Content Include="Animales\eliminarAnimal.html" />
+    <Content Include="Animales\modificarAnimal.html" />
     <Content Include="Dueños\crearDueño.html" />
     <Content Include="Dueños\eliminarDueño.html" />
     <Content Include="Dueños\modificarDueño.html" />
