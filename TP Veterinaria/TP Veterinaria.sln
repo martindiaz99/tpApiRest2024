@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TP Veterinaria", "TP Veteri
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frontend", "Frontend\Frontend.csproj", "{FDCFA2B9-2D67-49C1-9EED-FAFB30F7D0DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consola", "Consola\Consola.csproj", "{273EBDFD-03C4-4830-AE28-D533994B67A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{FDCFA2B9-2D67-49C1-9EED-FAFB30F7D0DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDCFA2B9-2D67-49C1-9EED-FAFB30F7D0DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDCFA2B9-2D67-49C1-9EED-FAFB30F7D0DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{273EBDFD-03C4-4830-AE28-D533994B67A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{273EBDFD-03C4-4830-AE28-D533994B67A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{273EBDFD-03C4-4830-AE28-D533994B67A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{273EBDFD-03C4-4830-AE28-D533994B67A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
