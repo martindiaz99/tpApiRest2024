@@ -1,3 +1,5 @@
+const baseurl = 'http://localhost:5196'; 
+
 function mostrarError(errorMsg){
     const errorDiv = document.createElement('div');
         errorDiv.className = 'alert';
@@ -18,6 +20,28 @@ function mostrarError(errorMsg){
 
     }, fadeOutTime);
 } 
+
+function mostrarOk(okMsg){
+    const okDiv = document.createElement('div');
+        okDiv.className = 'alert';
+        okDiv.innerHTML = `
+            <i class="fa-solid fa-circle-check"></i>
+            <span>${okMsg}</span>
+        `;
+
+    document.body.appendChild(okDiv);
+
+    const fadeOutTime = 4000; 
+
+    setTimeout(function () {
+        const alerts = document.querySelectorAll('.alert');
+        alerts.forEach(alert => {
+            alert.classList.add('fade-out');
+        });
+
+    }, fadeOutTime);
+} 
+
 
 
 /* detalle de dueño */
@@ -70,13 +94,8 @@ function mostrarFormularioEliminar(dni, nombre){
 
 
 
-const baseurl = 'http://localhost:5196'; 
-
-
-
-
-/* cargar tabla de dueños */
-document.addEventListener('DOMContentLoaded', () => {
+/* cargar lista */
+function cargarLista(){
     fetch(`${baseurl}/api/duenos/Lista`, {
         method: 'GET',
         headers: {
@@ -110,6 +129,12 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Error', error)
         mostrarError('No se pudo cargar la lista de dueños.');
     })
+}
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    cargarLista();
 });
 
 
@@ -142,8 +167,9 @@ document.getElementById('crearDuenoForm').addEventListener('submit', function (e
         return;
     })
     .then(() => {
-        alert('Dueño registrado con exito.')
-        location.reload()
+        document.querySelector('#crearDuenoModal').close();
+        cargarLista();
+        mostrarOk('Dueño registrado con exito.');
     })
     .catch(error => {
         console.log('Error', error);
@@ -179,8 +205,10 @@ document.getElementById('modificarDuenoForm').addEventListener('submit', functio
         return;
     })
     .then(() => {
-        alert('Dueño modificado con éxito.');
-        location.reload(); 
+        document.querySelector('#modificarDuenoModal').close();
+        cargarLista();
+        mostrarOk('Dueño modificado con éxito.');
+        
     })
     .catch(error => {
         console.log('Error', error);
@@ -188,7 +216,6 @@ document.getElementById('modificarDuenoForm').addEventListener('submit', functio
         mostrarError('No se pudo modificar al dueño.');
     });
 })
-
 
 
 
@@ -211,8 +238,9 @@ document.getElementById('eliminarDuenoForm').addEventListener('submit', function
         return;
     })
     .then(() => {
-        alert('Dueño eliminado con éxito.');
-        location.reload(); 
+        document.querySelector('#eliminarDuenoModal').close();
+        cargarLista();
+        mostrarOk('Dueño eliminado con éxito.');
     })
     .catch(error => {
         console.log('Error', error);
