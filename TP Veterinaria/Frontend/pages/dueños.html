@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Dueños - ICES Paws Care</title>
+        <link rel="shortcut icon" href="/images/paw-favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="/css/base/general.css">
+        <link rel="stylesheet" href="/css/pages/entitiespages.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <script src="/js/dueñoService.js" defer></script>
+    </head>
+    <body class="body">
+
+        <!-- barra superior -->
+        <header class="header">
+            <a href="animales.html" class="logo">
+                <img src="/images/logo.png" alt="">
+            </a>
+            <nav class="topnavbar-container">
+                <ul>
+                    <li>
+                        <a href="/home.html"><button class="brown-rectangle-btn">Salir</button></a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main class="main">
+            
+            <!-- formulario de registro -->
+            <dialog id="crearDuenoModal" class="popup">
+                <h2>Nuevo dueño</h2>
+
+                <form id="crearDuenoForm" class="form">
+                    <div class="input-container">
+                        <label>DNI</label>
+                        <input type="text" class="regular-form-input" name="dni" required>
+                    </div>
+                    <div class="input-container">
+                        <label>Nombre</label>
+                        <input type="text" class="regular-form-input" name="nombre" required>
+                    </div>
+
+                    <div class="multiple-input-container">
+                        <button type="submit" class="regular-form-submit-btn">Registrar</button>
+                        <button type="button" class="cancel-btn regular-form-cancel-btn" onclick="document.querySelector('#crearDuenoModal').close()">Cancelar</button>
+                    </div>
+                </form>
+            </dialog>
+
+            <!-- formulario de modificacion -->
+            <dialog id="modificarDuenoModal" class="popup">
+                <h2>Modificar dueño</h2>
+                <form id="modificarDuenoForm" class="form">
+                    <div class="input-container">
+                        <label>DNI</label>
+                        <input type="text" class="regular-form-input" name="dni" disabled>
+                    </div>
+                    <div class="input-container">
+                        <label>Nombre</label>
+                        <input type="text" class="regular-form-input" name="nombre" required>
+                    </div>
+
+
+                    <div class="multiple-input-container">
+                        <button type="submit" class="regular-form-submit-btn">Modificar</button>
+                        <button type="button" class="cancel-btn regular-form-cancel-btn" onclick="document.querySelector('#modificarDuenoModal').close()">Cancelar</button>
+                    </div>
+                </form>
+            </dialog>
+
+            <!-- detalle de registro -->
+            <dialog id="detalleDuenoModal" class="popup">
+                <h2>Detalle de dueño</h2>
+                <form id="detalleDuenoForm" class="form">
+                    <div class="input-container">
+                        <label>DNI</label>
+                        <input type="text" class="regular-form-input" name="dni" disabled>
+                    </div>
+                    <div class="input-container">
+                        <label>Nombre</label>
+                        <input type="text" class="regular-form-input" name="nombre" disabled>
+                    </div>
+
+                    <div class="multiple-input-container">
+                        <button type="button" class="regular-form-submit-btn" onclick="document.querySelector('#detalleDuenoModal').close()">Salir</button>
+                    </div>
+                </form>
+            </dialog>
+
+
+            <!-- formulario de baja -->
+            <dialog id="eliminarDuenoModal" class="popup">
+                <h2>Eliminar dueño</h2>
+                <form id="eliminarDuenoForm"  class="form">
+                    <div class="input-container">
+                        <label>DNI</label>
+                        <input type="text" class="regular-form-input" name="dni" value="" disabled>
+                    </div>
+                    <div class="input-container">
+                        <label>Nombre</label>
+                        <input type="text" class="regular-form-input" name="nombre" value="" disabled>
+                    </div>
+                    <div class="multiple-input-container">
+                        <button type="submit" class="regular-form-submit-btn">Eliminar</button>
+                        <button type="button" class="cancel-btn regular-form-cancel-btn" onclick="document.querySelector('#eliminarDuenoModal').close()">Cancelar</button>
+                    </div>
+                </form>
+            </dialog>
+
+
+            <!-- barra lateral -->
+            <nav class="sidebar-container">
+                <ul>
+                    <li>
+                        <a href="animales.html">
+                            <button class="sidebar-btn">
+                                <i class="fa-solid fa-dog"></i>
+                                <span>Animales</span>
+                            </button>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="dueños.html">
+                            <button class="sidebar-btn active">
+                                <i class="fa-solid fa-user"></i>
+                                <span>Dueños</span>
+                            </button>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="historiasClinicas.html">
+                            <button class="sidebar-btn">
+                                <i class="fa-solid fa-notes-medical"></i>
+                                <span>Historias clínicas</span>
+                            </button>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="app">
+                <!-- titulo -->
+                <h1>
+                    Listado de dueños
+                </h1>
+
+
+                <!-- acciones -->
+                <div class="action-btns">
+                    <div>
+                        <button class="action-btn" onclick="document.querySelector('#crearDuenoModal').showModal()">
+                            <i class="fa-solid fa-circle-plus"></i>
+                            <span>Nuevo registro</span>
+                        </button>
+                    </div>
+                </div>
+
+
+
+                <!-- tabla -->
+                <div class="table-container">
+                    <table class="table" id="tablaDuenos">
+                        <thead>
+                            <tr>
+                                <th>DNI</th>
+                                <th>Nombre</th>
+                                <th class="action-thead">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        <!-- 
+                            <tr>
+                                <td>Juan Doe</td>
+                                <td>42000000</td>
+                                <td class="table-action-btn">
+                                    <button class="action" onclick="document.querySelector('#modificarDuenoModal').showModal()">Modificar</button>
+                                    <span>|</span>
+                                    <button class="action" onclick="document.querySelector('#detalleDuenoModal').showModal()">Detalle</button>
+                                    <span>|</span>
+                                    <button class="action" onclick="document.querySelector('#eliminarDueñoModal').showModal()">Eliminar</button>
+                                </td>
+                            </tr>
+
+                            
+
+                            <tr>
+                                <td>Gordo Dan</td>
+                                <td>41000000</td>
+                                <td class="table-action-btn">
+                                    <button class="action" onclick="document.querySelector('#modificarDuenoModal').showModal()">Modificar</button>
+                                    <span>|</span>
+                                    <button class="action" onclick="document.querySelector('#detalleDuenoModal').showModal()">Detalle</button>
+                                    <span>|</span>
+                                    <button class="action" onclick="document.querySelector('#eliminarDuenoModal').showModal()">Eliminar</button>
+                                </td>
+                            </tr>
+
+
+                            
+                            <tr>
+                                <td>Mariano Perez</td>
+                                <td>40000000</td>
+                                <td class="table-action-btn">
+                                    <button class="action" onclick="document.querySelector('#modificarDuenoModal').showModal()">Modificar</button>
+                                    <span>|</span>
+                                    <button class="action" onclick="document.querySelector('#detalleDuenoModal').showModal()">Detalle</button>
+                                    <span>|</span>
+                                    <button class="action" onclick="document.querySelector('#eliminarDuenoModal').showModal()">Eliminar</button>
+                                </td>
+                            </tr> -->
+
+                        </tbody>
+                    </table>
+                </div> 
+            </div>
+        </main>
+    </body>
+</html>

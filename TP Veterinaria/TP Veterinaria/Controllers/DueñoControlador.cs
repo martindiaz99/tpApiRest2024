@@ -6,6 +6,8 @@ using TP_Veterinaria.Models;
 using TP_Veterinaria.Controllers;
 using System.Net.Http;
 using Azure;
+using System.Net;
+using Microsoft.EntityFrameworkCore;
 
 namespace TP_Veterinaria.Controllers
 {
@@ -23,10 +25,9 @@ namespace TP_Veterinaria.Controllers
         }
 
         //Post
-        [HttpPost]
-        public async Task<ActionResult> CrearDueño(DueñoDto dueñoDto)
+        [HttpPost("Registrar")]
+        public async Task<ActionResult> CrearDueño([FromBody] DueñoDto dueñoDto)
         {
-            //Pasar los datos del DTO a la clase de Modelo
             Dueño dueño = new Dueño();
             dueño.Dni = dueñoDto.Dni;
             dueño.Nombre = dueñoDto.Nombre;
@@ -38,17 +39,57 @@ namespace TP_Veterinaria.Controllers
         }
 
         //Get
-        [HttpGet("idDueno")]
-        public async Task<List<Animal>> ConsultarAnimalesDueño(int idDueno)
+        [HttpGet("Lista")]
+        public async Task<List<Dueño>> listaDueños()
         {
-            var urlPedido = $"https://localhost:7001/api/animales/idDueno?idDueno={idDueno}";
-
-            var respuesta = await _httpClient.GetAsync(urlPedido);
-            respuesta.EnsureSuccessStatusCode();
-
-            List<Animal> ListaAnimales = await respuesta.Content.ReadFromJsonAsync<List<Animal>>();
-
-            return ListaAnimales;
+            return _context.Dueño.ToList();
         }
+
+        [HttpGet("Consultar")]
+        public async Task<Dueño> consultarDueño(string dni)
+        {
+            return await _context.Dueño.FirstOrDefaultAsync(x => x.Dni == dni);
+        }
+
+        //Get
+        [HttpDelete("Eliminar")]
+        public async Task<ActionResult> eliminarDueño(string dni)
+        {
+            var dueñoEliminar = await _context.Dueño.FirstOrDefaultAsync(x => x.Dni == dni);
+
+            if (dueñoEliminar != null)
+            {
+                _context.Remove(dueñoEliminar);
+                await _context.SaveChangesAsync();
+
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpPut("Modificar")]
+        public async Task<ActionResult> modificarDueño([FromBody] DueñoDto dueñoDto)
+        {
+
+            var dueñoModificar = await _context.Dueño.FirstOrDefaultAsync(x => x.Dni == dueñoDto.Dni);
+
+            if (dueñoModificar != null)
+            {
+                dueñoModificar.Nombre = dueñoDto.Nombre;
+
+                _context.Entry(dueñoModificar).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
+
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
     }
 }

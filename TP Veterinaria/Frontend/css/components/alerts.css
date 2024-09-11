@@ -1,0 +1,38 @@
+.alert {
+    z-index: 2000;
+    position: fixed;
+    top: 3.5%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1em;
+    background-color: var(--white);
+    box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    border-radius: 4px;
+
+    font-size: 1.2rem;
+
+    & span {
+        color: rgb(52, 52, 52);
+    }
+}
+
+.alert i {
+    color: var(--brown);
+}
+
+.alert.fade-out {
+    animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}

@@ -67,26 +67,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\default.css" />
-    <Content Include="css\delete-pages.css" />
-    <Content Include="css\modify-pages.css" />
-    <Content Include="css\register-pages.css" />
-    <Content Include="css\subpages.css" />
-    <Content Include="html\Animales\crearAnimal.html" />
-    <Content Include="html\Animales\detalleAnimal.html" />
-    <Content Include="html\Animales\eliminarAnimal.html" />
-    <Content Include="html\Animales\modificarAnimal.html" />
-    <Content Include="html\Dueños\crearDueño.html" />
-    <Content Include="html\Dueños\eliminarDueño.html" />
-    <Content Include="html\Dueños\modificarDueño.html" />
-    <Content Include="html\HistoriasClinicas\detalleHistoriaClinica.html" />
-    <Content Include="html\HistoriasClinicas\editarHistoriaClinica.html" />
-    <Content Include="html\HistoriasClinicas\eliminarHistoriaClinica.html" />
-    <Content Include="html\HistoriasClinicas\registrarHistoriaClinica.html" />
-    <Content Include="Landing.html" />
-    <Content Include="html\Animales\mainAnimales.html" />
-    <Content Include="html\Dueños\mainDueños.html" />
-    <Content Include="html\HistoriasClinicas\mainHistoriasClinicas.html" />
+    <Content Include="css\base\general.css" />
+    <Content Include="css\base\reset.css" />
+    <Content Include="css\components\alerts.css" />
+    <Content Include="css\components\buttons.css" />
+    <Content Include="css\components\forms.css" />
+    <Content Include="css\components\popup.css" />
+    <Content Include="css\components\tables.css" />
+    <Content Include="css\pages\entitiespages.css" />
+    <Content Include="css\pages\home.css" />
+    <Content Include="home.html" />
+    <Content Include="images\dog.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\paw-favicon.ico" />
+    <Content Include="js\dueñoService.js" />
+    <Content Include="pages\animales.html" />
+    <Content Include="pages\dueños.html" />
+    <Content Include="pages\historiasClinicas.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

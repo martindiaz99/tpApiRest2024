@@ -6,9 +6,14 @@ namespace TP_Veterinaria.Data
 {
     public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        public ApplicationDbContext() { }
+        public ApplicationDbContext(DbContextOptions options) : base(options) { }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer("Data Source=localhost\\SQLEXPRESS;Initial Catalog=VeterinariaBD;Integrated Security=True;TrustServerCertificate=true;");
+            }
         }
         public DbSet<Animal> Animal { get; set; } = default!;
         public DbSet<Dueño> Dueño { get; set; } = default!;

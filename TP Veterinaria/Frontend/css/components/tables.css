@@ -1,0 +1,84 @@
+.table-container {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.table {
+    --border: solid 1px #ddd;
+    --border-radius: 1rem;
+    --cell-padding: 1.25rem 1.25rem 1.25rem 1.35rem;
+    font-size: calc(var(--fs-small) - 2px);
+    width: 100%;
+    table-layout: auto;
+    border-radius: var(--border-radius);
+    border-collapse: collapse;
+    overflow: hidden;
+    text-align: left;
+}
+
+.table thead tr {
+    background-color: var(--brown);
+    cursor: pointer;
+}
+
+.table thead tr th {
+    font-size: inherit;
+    color: var(--white);
+    font-weight: 600;
+    padding: var(--cell-padding);
+}
+
+.table tbody tr td {
+    font-size: inherit;
+    color: #313131;
+    font-weight: 400;
+    padding: var(--cell-padding);
+}
+
+
+.table tbody tr {
+    background-color: var(--white);
+}
+
+.table tbody tr:nth-of-type(2n) {
+    background-color: #F1F0ED;
+}
+
+.action-thead {
+    text-align: right;
+}
+
+.table-action-btn {
+    display: flex;
+    justify-content: end;
+    gap: 2rem;
+}
+
+.table .action {
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 1.25rem;
+    color: var(--brown);
+    text-decoration: underline;
+}
+
+.table .action:hover {
+    color: var(--dark-brown);
+}
+
+.table thead tr:first-child th:first-child {
+    border-top-left-radius: var(--border-radius);
+}
+
+.table thead tr:first-child th:last-child {
+    border-top-right-radius: var(--border-radius);
+}
+
+.table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: var(--border-radius);
+}
+
+.table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: var(--border-radius);
+}

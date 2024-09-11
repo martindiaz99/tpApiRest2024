@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Historias Clínicas - ICES Paws Care</title>
+        <link rel="shortcut icon" href="/images/paw-favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="/css/base/general.css">
+        <link rel="stylesheet" href="/css/pages/entitiespages.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body class="body">
+
+        <!-- barra superior -->
+        <header class="header">
+            <a href="animales.html" class="logo">
+                <img src="/images/logo.png" alt="">
+            </a>
+            <nav class="topnavbar-container">
+                <ul>
+                    <li>
+                        <a href="/home.html"><button class="brown-rectangle-btn">Salir</button></a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main class="main">
+            
+            <!-- formulario de registro -->
+            <dialog id="crearHistoriaClinicaModal" class="popup">
+                <h2>Nueva historia clínica</h2>
+                <form action="#" class="form">
+                    <div class="input-container">
+                        <label>ID Animal</label>
+                        <input type="number" class="regular-form-input" name="idAnimal" required>
+                    </div>
+                    <div class="input-container">
+                        <label>Atenciones</label>
+                        <input type="text" class="regular-form-input" name="atenciones" required>
+                    </div>
+
+                    <div class="multiple-input-container">
+                        <button type="submit" class="regular-form-submit-btn">Registrar</button>
+                        <button class="cancel-btn regular-form-cancel-btn" onclick="document.querySelector('#crearHistoriaClinicaModal').close()">Cancelar</button>
+                    </div>
+                </form>
+            </dialog>
+
+            <!-- formulario de modificacion -->
+            <dialog id="modificarHistoriaClinicaModal" class="popup">
+                <h2>Modificar historia clínica</h2>
+                <form action="#" class="form">
+                    <div class="multiple-input-container">
+                        <div class="input-container">
+                            <label>ID Historia Clínica</label>
+                            <input type="text" class="regular-form-input" name="id" value="1" disabled>
+                        </div>
+                        <div class="input-container">
+                            <label>ID Animal</label>
+                            <input type="number" class="regular-form-input" name="idAnimal" required>
+                        </div>
+                    </div>
+
+                    <div class="input-container">
+                        <label>Atenciones</label>
+                        <input type="text" class="regular-form-input" name="atenciones" required>
+                    </div>
+
+                    <div class="multiple-input-container">
+                        <button type="submit" class="regular-form-submit-btn">Modificar</button>
+                        <button class="cancel-btn regular-form-cancel-btn" onclick="document.querySelector('#modificarHistoriaClinicaModal').close()">Cancelar</button>
+                    </div>
+                </form>
+            </dialog>
+
+            <!-- detalle de registro -->
+            <dialog id="detalleHistoriaClinicaModal" class="popup">
+                <h2>Detalle de historia clínica</h2>
+                <form action="#" class="form">
+                    <div class="multiple-input-container">
+                        <div class="input-container">
+                            <label>ID Historia Clínica</label>
+                            <input type="text" class="regular-form-input" name="id" value="1" disabled>
+                        </div>
+                        <div class="input-container">
+                            <label>ID Animal</label>
+                            <input type="number" class="regular-form-input" name="idAnimal" disabled>
+                        </div>
+                    </div>
+
+                    <div class="input-container">
+                        <label>Atenciones</label>
+                        <input type="text" class="regular-form-input" name="atenciones" disabled>
+                    </div>
+
+                    <div class="multiple-input-container">
+                        <button class="regular-form-submit-btn" onclick="document.querySelector('#detalleHistoriaClinicaModal').close()">Salir</button>
+                    </div>
+                </form>
+            </dialog>
+
+
+            <!-- formulario de baja -->
+            <dialog id="eliminarHistoriaClinicaModal" class="popup">
+                <h2>Eliminar historia clínica</h2>
+                <form action="#" class="form">
+                    <div class="multiple-input-container">
+                        <div class="input-container">
+                            <label>ID Historia Clínica</label>
+                            <input type="text" class="regular-form-input" name="id" value="1" disabled>
+                        </div>
+                        <div class="input-container">
+                            <label>ID Animal</label>
+                            <input type="number" class="regular-form-input" name="idAnimal" disabled>
+                        </div>
+                    </div>
+                    <div class="input-container">
+                        <label>Atenciones</label>
+                        <input type="text" class="regular-form-input" name="atenciones" disabled>
+                    </div>
+
+                    <div class="multiple-input-container">
+                        <button type="submit" class="regular-form-submit-btn">Eliminar</button>
+                        <button class="cancel-btn regular-form-cancel-btn" onclick="document.querySelector('#eliminarHistoriaClinicaModal').close()">Cancelar</button>
+                    </div>
+                </form>
+            </dialog>
+
+
+            <!-- barra lateral -->
+            <nav class="sidebar-container">
+                <ul>
+                    <li>
+                        <a href="animales.html">
+                            <button class="sidebar-btn">
+                                <i class="fa-solid fa-dog"></i>
+                                <span>Animales</span>
+                            </button>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="dueños.html">
+                            <button class="sidebar-btn">
+                                <i class="fa-solid fa-user"></i>
+                                <span>Dueños</span>
+                            </button>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="historiasClinicas.html">
+                            <button class="sidebar-btn active">
+                                <i class="fa-solid fa-notes-medical"></i>
+                                <span>Historias clínicas</span>
+                            </button>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="app">
+                <!-- titulo -->
+                <h1>
+                    Listado de historias clínicas
+                </h1>
+
+
+                <!-- acciones -->
+                <div class="action-btns">
+                    <div>
+                        <button class="action-btn" onclick="document.querySelector('#crearHistoriaClinicaModal').showModal()">
+                            <i class="fa-solid fa-circle-plus"></i>
+                            <span>Nuevo registro</span>
+                        </button>
+                    </div>
+                </div>
+
+
+
+                <!-- tabla -->
+                <div class="table-container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Número de historia clínica</th>
+                                <th>Animal</th>
+                                <th>Atenciones</th>
+                                <th class="action-thead">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1 - 2 -3</td>
+                                <td class="table-action-btn">
+                                    <button class="action" onclick="document.querySelector('#modificarHistoriaClinicaModal').showModal()">Modificar</button>
+                                    <span>|</span>
+                                    <button class="action" onclick="document.querySelector('#detalleHistoriaClinicaModal').showModal()">Detalle</button>
+                                    <span>|</span>
+                                    <button class="action" onclick="document.querySelector('#eliminarHistoriaClinicaModal').showModal()">Eliminar</button>
+                                </td>
+                            </tr>
+
+                            
+
+                            <tr>
+                                <td>2</td>
+                                <td>2</td>
+                                <td>4 - 5 - 6</td>
+                                <td class="table-action-btn">
+                                    <button class="action" onclick="document.querySelector('#modificarHistoriaClinicaModal').showModal()">Modificar</button>
+                                    <span>|</span>
+                                    <button class="action" onclick="document.querySelector('#detalleHistoriaClinicaModal').showModal()">Detalle</button>
+                                    <span>|</span>
+                                    <button class="action" onclick="document.querySelector('#eliminarHistoriaClinicaModal').showModal()">Eliminar</button>
+                                </td>
+                            </tr>
+
+
+                            
+                            <tr>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>7 - 8 - 9</td>
+                                <td class="table-action-btn">
+                                    <button class="action" onclick="document.querySelector('#modificarHistoriaClinicaModal').showModal()">Modificar</button>
+                                    <span>|</span>
+                                    <button class="action" onclick="document.querySelector('#detalleHistoriaClinicaModal').showModal()">Detalle</button>
+                                    <span>|</span>
+                                    <button class="action" onclick="document.querySelector('#eliminarHistoriaClinicaModal').showModal()">Eliminar</button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div> 
+            </div>
+        </main>
+    </body>
+</html>

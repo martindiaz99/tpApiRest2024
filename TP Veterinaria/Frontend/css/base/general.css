@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('/css/base/reset.css');
+@import url('/css/components/buttons.css');
+@import url('/css/components/tables.css');
+@import url('/css/components/forms.css');
+@import url('/css/components/popup.css');
+@import url('/css/components/alerts.css');
+
+:root {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+
+    /* fonts sizes */
+    --fs-extra-large: clamp(6rem, 7vw + 1rem, 12rem);
+    --fs-large: clamp(2rem, 1vw + 2.5rem, 4.5rem);
+    --fs-medium: clamp(1rem, 3vw + 1rem, 4rem);
+    --fs-small: clamp(1.5rem, 1vw + 0.25rem, 1rem);
+
+    /* colors */
+    --black: #333230;
+    --brown: #b18b62;
+    --light-brown: #b39372;
+    --dark-brown: #9c7e5d;
+    --white: #f9f9f9;
+}

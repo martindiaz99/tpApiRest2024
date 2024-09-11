@@ -1,0 +1,38 @@
+.brown-rectangle-btn {
+    outline: none;
+    border: none;
+    padding: 1.25rem 4rem;
+    border-radius: 4px;
+    background-color: var(--brown);
+    color: var(--white);
+    font-weight: 400;
+    transition: background-color .35s ease;
+}
+
+.brown-rectangle-btn:hover {
+    background-color: var(--light-brown);
+}
+
+
+.action-btn {
+    outline: none;
+    border: none;
+    padding: 1.25rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-self: center;
+
+    border-radius: 1rem;
+    background-color: var(--brown);
+
+    color: var(--white);
+    font-weight: 400;
+    transition: background-color .35s ease;
+
+    font-size: 1.25rem;
+}
+
+.action-btn:hover {
+    background-color: var(--dark-brown);
+}
